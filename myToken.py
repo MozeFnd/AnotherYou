@@ -1,1 +1,5 @@
-myToken = "ms-fa149b85-bc91-4fd4-bcd4-40d467c3b48b"
+import os
+
+myToken = os.getenv("xxx_KEY")
+if not myToken:
+    raise RuntimeError("Environment variable xxx_KEY is required")
