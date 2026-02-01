@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, Response
 from flask_cors import CORS
+import base64
 import os
 from ChatBot import ChatBot
 from GenPic import ImageGenerator
@@ -8,6 +9,9 @@ from myToken import myToken
 
 app = Flask(__name__, static_folder='static')
 CORS(app)
+
+# 1x1 PNG favicon to avoid 404s on /favicon.ico without adding a binary file.
+_FAVICON_PNG = b"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
 
 # 初始化工具
 chatbot = ChatBot(api_key=myToken)
@@ -24,6 +28,13 @@ STAGES = [
 @app.route('/')
 def index():
     return send_from_directory('static', 'index.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    return Response(
+        base64.b64decode(_FAVICON_PNG),
+        mimetype='image/png'
+    )
 
 @app.route('/api/start', methods=['POST'])
 def start_game():
