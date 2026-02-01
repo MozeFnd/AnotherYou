@@ -13,7 +13,7 @@ class ImageGenerator:
     """图片生成器类，支持异步生成图片并保存到本地"""
     
     def __init__(self, api_key=None, base_url="https://api-inference.modelscope.cn/", 
-                 model="Qwen/Qwen-Image", output_dir="images", poll_interval=3):
+                 model="MiniMax/MiniMax-M1-80k", output_dir="images", poll_interval=3):
         """
         初始化图片生成器
         
