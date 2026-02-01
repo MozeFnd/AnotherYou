@@ -155,7 +155,7 @@ class ImageGenerator:
 if __name__ == "__main__":
     # 创建图片生成器实例
     generator = ImageGenerator(
-        model="Qwen/Qwen-Image"  # 如果ZhipuAI模型不可用，使用Qwen模型
+        model="MiniMax/MiniMax-M1-80k"  # 如果ZhipuAI模型不可用，使用Qwen模型
     )
     
     # 方式1: 分步执行（先提交任务，再轮询）
