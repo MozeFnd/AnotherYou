@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人生故事模拟器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 开始页面 -->
+    <div id="start-page" class="page active">
+        <div class="container">
+            <h1>🎭 人生故事模拟器</h1>
+            <p class="subtitle">选择你的基础信息，开始你的人生之旅</p>
+            
+            <form id="basic-info-form">
+                <div class="form-group">
+                    <label for="gender">性别：</label>
+                    <select id="gender" required>
+                        <option value="">请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mbti">MBTI：</label>
+                    <select id="mbti" required>
+                        <option value="">请选择</option>
+                        <option value="INTJ">INTJ - 建筑师</option>
+                        <option value="INTP">INTP - 逻辑学家</option>
+                        <option value="ENTJ">ENTJ - 指挥官</option>
+                        <option value="ENTP">ENTP - 辩论家</option>
+                        <option value="INFJ">INFJ - 提倡者</option>
+                        <option value="INFP">INFP - 调停者</option>
+                        <option value="ENFJ">ENFJ - 主人公</option>
+                        <option value="ENFP">ENFP - 竞选者</option>
+                        <option value="ISTJ">ISTJ - 物流师</option>
+                        <option value="ISFJ">ISFJ - 守卫者</option>
+                        <option value="ESTJ">ESTJ - 总经理</option>
+                        <option value="ESFJ">ESFJ - 执政官</option>
+                        <option value="ISTP">ISTP - 鉴赏家</option>
+                        <option value="ISFP">ISFP - 探险家</option>
+                        <option value="ESTP">ESTP - 企业家</option>
+                        <option value="ESFP">ESFP - 表演者</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="zodiac">星座：</label>
+                    <select id="zodiac" required>
+                        <option value="">请选择</option>
+                        <option value="白羊座">白羊座</option>
+                        <option value="金牛座">金牛座</option>
+                        <option value="双子座">双子座</option>
+                        <option value="巨蟹座">巨蟹座</option>
+                        <option value="狮子座">狮子座</option>
+                        <option value="处女座">处女座</option>
+                        <option value="天秤座">天秤座</option>
+                        <option value="天蝎座">天蝎座</option>
+                        <option value="射手座">射手座</option>
+                        <option value="摩羯座">摩羯座</option>
+                        <option value="水瓶座">水瓶座</option>
+                        <option value="双鱼座">双鱼座</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="background">家庭出身背景：</label>
+                    <select id="background" required>
+                        <option value="">请选择</option>
+                        <option value="富裕家庭">富裕家庭</option>
+                        <option value="中产家庭">中产家庭</option>
+                        <option value="普通工薪家庭">普通工薪家庭</option>
+                        <option value="单亲家庭">单亲家庭</option>
+                        <option value="农村家庭">农村家庭</option>
+                        <option value="知识分子家庭">知识分子家庭</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-primary">下一步：性格测试</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- 性格测试页面 -->
+    <div id="quiz-page" class="page">
+        <div class="container">
+            <h1>📝 性格测试</h1>
+            <p class="subtitle">请回答以下5道问题，帮助我们了解你的性格</p>
+            
+            <form id="quiz-form">
+                <div class="quiz-item">
+                    <h3>问题 1：面对困难时，你更倾向于？</h3>
+                    <label><input type="radio" name="q1" value="独自思考解决方案" required> 独自思考解决方案</label>
+                    <label><input type="radio" name="q1" value="寻求他人帮助"> 寻求他人帮助</label>
+                    <label><input type="radio" name="q1" value="先观察再行动"> 先观察再行动</label>
+                </div>
+                
+                <div class="quiz-item">
+                    <h3>问题 2：在社交场合，你通常是？</h3>
+                    <label><input type="radio" name="q2" value="活跃的焦点" required> 活跃的焦点</label>
+                    <label><input type="radio" name="q2" value="安静的观察者"> 安静的观察者</label>
+                    <label><input type="radio" name="q2" value="适度的参与者"> 适度的参与者</label>
+                </div>
+                
+                <div class="quiz-item">
+                    <h3>问题 3：做决定时，你更依赖？</h3>
+                    <label><input type="radio" name="q3" value="逻辑分析" required> 逻辑分析</label>
+                    <label><input type="radio" name="q3" value="直觉感受"> 直觉感受</label>
+                    <label><input type="radio" name="q3" value="经验判断"> 经验判断</label>
+                </div>
+                
+                <div class="quiz-item">
+                    <h3>问题 4：对于未来，你更关注？</h3>
+                    <label><input type="radio" name="q4" value="长期规划" required> 长期规划</label>
+                    <label><input type="radio" name="q4" value="当下体验"> 当下体验</label>
+                    <label><input type="radio" name="q4" value="灵活应变"> 灵活应变</label>
+                </div>
+                
+                <div class="quiz-item">
+                    <h3>问题 5：面对冲突，你的态度是？</h3>
+                    <label><input type="radio" name="q5" value="直接面对" required> 直接面对</label>
+                    <label><input type="radio" name="q5" value="避免冲突"> 避免冲突</label>
+                    <label><input type="radio" name="q5" value="寻求妥协"> 寻求妥协</label>
+                </div>
+                
+                <button type="submit" class="btn-primary">生成性格画像</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- 性格画像展示页面 -->
+    <div id="personality-page" class="page">
+        <div class="container">
+            <h1>✨ 你的性格画像</h1>
+            <div id="personality-content" class="personality-box">
+                <div class="loading">正在生成你的性格画像...</div>
+            </div>
+            <button id="start-journey-btn" class="btn-primary" style="display:none;">开始人生之旅</button>
+        </div>
+    </div>
+    
+    <!-- 游戏主页面 -->
+    <div id="game-page" class="page">
+        <div class="container">
+            <div class="game-header">
+                <h1 id="stage-title">人生故事模拟器</h1>
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+                <p id="stage-info" class="stage-info"></p>
+            </div>
+            
+            <div id="story-content" class="story-content">
+                <!-- 故事和图片将在这里动态加载 -->
+            </div>
+            
+            <div id="choice-section" class="choice-section" style="display:none;">
+                <h3 id="choice-question"></h3>
+                <div id="choice-options" class="choice-options"></div>
+            </div>
+            
+            <div id="outcome-section" class="outcome-section" style="display:none;">
+                <h3>结局</h3>
+                <div id="outcome-content"></div>
+                <button id="next-stage-btn" class="btn-primary" style="display:none;">进入下一阶段</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

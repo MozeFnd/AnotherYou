@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', 'PingFang SC', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.page.active {
+    display: block;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.quiz-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.quiz-item h3 {
+    margin-bottom: 15px;
+    color: #667eea;
+}
+
+.quiz-item label {
+    display: block;
+    padding: 10px;
+    margin: 8px 0;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.quiz-item label:hover {
+    background: #e9ecef;
+}
+
+.quiz-item input[type="radio"] {
+    margin-right: 10px;
+}
+
+.personality-box {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #333;
+    min-height: 150px;
+}
+
+.loading {
+    text-align: center;
+    color: #667eea;
+    font-size: 1.2em;
+}
+
+.game-header {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s;
+    width: 0%;
+}
+
+.stage-info {
+    text-align: center;
+    color: #666;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.story-content {
+    margin: 30px 0;
+}
+
+.story-text {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.image-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.image-description {
+    color: #666;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.choice-section {
+    margin: 30px 0;
+    padding: 25px;
+    background: #fff3cd;
+    border-radius: 10px;
+    border: 2px solid #ffc107;
+}
+
+.choice-section h3 {
+    color: #856404;
+    margin-bottom: 20px;
+}
+
+.choice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.choice-option {
+    padding: 15px;
+    background: white;
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 1.05em;
+}
+
+.choice-option:hover {
+    background: #fff3cd;
+    transform: translateX(5px);
+}
+
+.choice-option:active {
+    transform: translateX(0);
+}
+
+.outcome-section {
+    margin: 30px 0;
+    padding: 25px;
+    background: #d1ecf1;
+    border-radius: 10px;
+    border: 2px solid #0c5460;
+}
+
+.outcome-section h3 {
+    color: #0c5460;
+    margin-bottom: 20px;
+}
+
+.outcome-text {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .choice-options {
+        gap: 10px;
+    }
+}
