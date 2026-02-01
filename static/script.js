@@ -11,6 +11,101 @@ const STAGES = [
     { name: "中年时期", ageRange: "37-50岁" }
 ];
 
+function getFactsForStage(stageIndex) {
+    if (!window.FACTS || !Array.isArray(window.FACTS.stages)) {
+        return [];
+    }
+
+    const directStage = window.FACTS.stages[stageIndex];
+    if (directStage && Array.isArray(directStage.facts)) {
+        return directStage.facts;
+    }
+
+    const stageMeta = STAGES[stageIndex];
+    if (stageMeta) {
+        const matched = window.FACTS.stages.find((stage) => {
+            return stage.name === stageMeta.name || stage.ageRange === stageMeta.ageRange;
+        });
+        if (matched && Array.isArray(matched.facts)) {
+            return matched.facts;
+        }
+    }
+
+    return [];
+}
+
+function pickRandomItems(items, count) {
+    const copy = items.slice();
+    for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy.slice(0, count);
+}
+
+function formatYearLabel(year) {
+    if (year === undefined || year === null || year === '') {
+        return '';
+    }
+    if (typeof year === 'number') {
+        return `${year}年`;
+    }
+    const yearText = String(year);
+    return yearText.includes('年') ? yearText : `${yearText}年`;
+}
+
+function formatAgeLabel(age) {
+    if (age === undefined || age === null || age === '') {
+        return '';
+    }
+    if (typeof age === 'number') {
+        return `${age}岁`;
+    }
+    const ageText = String(age);
+    return ageText.includes('岁') ? ageText : `${ageText}岁`;
+}
+
+function renderFacts(stageIndex, count = 3) {
+    const facts = getFactsForStage(stageIndex);
+    if (!facts.length) {
+        return '';
+    }
+
+    const selected = pickRandomItems(facts, Math.min(count, facts.length));
+    const listItems = selected.map((fact) => {
+        const metaParts = [];
+        if (fact.person) {
+            metaParts.push(fact.person);
+        }
+        const ageLabel = formatAgeLabel(fact.age);
+        const yearLabel = formatYearLabel(fact.year);
+        if (ageLabel) {
+            metaParts.push(ageLabel);
+        }
+        if (yearLabel) {
+            metaParts.push(yearLabel);
+        }
+        const metaText = metaParts.join(' · ');
+        const sourceText = fact.source ? `<span class="fact-source">来源：${fact.source}</span>` : '';
+        return `
+            <li class="fact-item">
+                <div class="fact-meta">${metaText}</div>
+                <div class="fact-text">${fact.text || ''}</div>
+                ${sourceText}
+            </li>
+        `;
+    }).join('');
+
+    return `
+        <div class="facts-panel">
+            <div class="facts-header">名人轶事</div>
+            <ul class="facts-list">
+                ${listItems}
+            </ul>
+        </div>
+    `;
+}
+
 // 页面切换函数
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
@@ -103,7 +198,7 @@ async function loadStage() {
     
     // 显示加载状态
     document.getElementById('story-content').innerHTML = 
-        '<div class="loading">正在生成你的故事...</div>';
+        `<div class="loading">正在生成你的故事...</div>${renderFacts(currentStage)}`;
     document.getElementById('choice-section').style.display = 'none';
     document.getElementById('outcome-section').style.display = 'none';
     
@@ -179,7 +274,7 @@ async function handleChoice(choice) {
     document.getElementById('choice-section').style.display = 'none';
     document.getElementById('outcome-section').style.display = 'block';
     document.getElementById('outcome-content').innerHTML = 
-        '<div class="loading">正在生成结局...</div>';
+        `<div class="loading">正在生成结局...</div>${renderFacts(currentStage)}`;
     
     try {
         const response = await fetch('/api/generate_outcome', {
