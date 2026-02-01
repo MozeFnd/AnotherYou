@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: app.py",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/app.py",
+      "console": "integratedTerminal",
+      "env": {
+        "MODELSCOPE_KEY": "ms-fa149b85-bc91-4fd4-bcd4-40d467c3b48b"
+      }
+    }
+  ]
+}

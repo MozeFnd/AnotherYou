@@ -91,41 +91,9 @@
             <p class="subtitle">请回答以下5道问题，帮助我们了解你的性格</p>
             
             <form id="quiz-form">
-                <div class="quiz-item">
-                    <h3>问题 1：面对困难时，你更倾向于？</h3>
-                    <label><input type="radio" name="q1" value="独自思考解决方案" required> 独自思考解决方案</label>
-                    <label><input type="radio" name="q1" value="寻求他人帮助"> 寻求他人帮助</label>
-                    <label><input type="radio" name="q1" value="先观察再行动"> 先观察再行动</label>
+                <div id="quiz-items">
+                    <div class="loading">正在生成性格问题...</div>
                 </div>
-                
-                <div class="quiz-item">
-                    <h3>问题 2：在社交场合，你通常是？</h3>
-                    <label><input type="radio" name="q2" value="活跃的焦点" required> 活跃的焦点</label>
-                    <label><input type="radio" name="q2" value="安静的观察者"> 安静的观察者</label>
-                    <label><input type="radio" name="q2" value="适度的参与者"> 适度的参与者</label>
-                </div>
-                
-                <div class="quiz-item">
-                    <h3>问题 3：做决定时，你更依赖？</h3>
-                    <label><input type="radio" name="q3" value="逻辑分析" required> 逻辑分析</label>
-                    <label><input type="radio" name="q3" value="直觉感受"> 直觉感受</label>
-                    <label><input type="radio" name="q3" value="经验判断"> 经验判断</label>
-                </div>
-                
-                <div class="quiz-item">
-                    <h3>问题 4：对于未来，你更关注？</h3>
-                    <label><input type="radio" name="q4" value="长期规划" required> 长期规划</label>
-                    <label><input type="radio" name="q4" value="当下体验"> 当下体验</label>
-                    <label><input type="radio" name="q4" value="灵活应变"> 灵活应变</label>
-                </div>
-                
-                <div class="quiz-item">
-                    <h3>问题 5：面对冲突，你的态度是？</h3>
-                    <label><input type="radio" name="q5" value="直接面对" required> 直接面对</label>
-                    <label><input type="radio" name="q5" value="避免冲突"> 避免冲突</label>
-                    <label><input type="radio" name="q5" value="寻求妥协"> 寻求妥协</label>
-                </div>
-                
                 <button type="submit" class="btn-primary">生成性格画像</button>
             </form>
         </div>
@@ -167,6 +135,26 @@
                 <div id="outcome-content"></div>
                 <button id="next-stage-btn" class="btn-primary" style="display:none;">进入下一阶段</button>
             </div>
+        </div>
+    </div>
+
+    <!-- 人生回顾页面 -->
+    <div id="review-page" class="page">
+        <div class="container">
+            <h1>📖 人生回顾</h1>
+            <p class="subtitle">回顾你的人生故事与关键瞬间</p>
+            <div id="review-summary" class="review-summary">
+                <div class="loading">正在生成回顾...</div>
+            </div>
+            <div class="review-controls">
+                <label class="review-toggle">
+                    <input type="checkbox" id="review-animate-toggle">
+                    连环画动画
+                </label>
+                <button id="review-audio-btn" class="btn-secondary">朗读回顾</button>
+            </div>
+            <div id="review-comic" class="review-comic"></div>
+            <button id="restart-btn" class="btn-primary">重新开始</button>
         </div>
     </div>
     

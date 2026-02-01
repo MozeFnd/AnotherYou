@@ -83,6 +83,28 @@ h1 {
     margin-top: 20px;
 }
 
+.btn-secondary {
+    padding: 10px 18px;
+    background: #ffffff;
+    color: #5a5a5a;
+    border: 2px solid #cfd4da;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #f1f3f5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
@@ -112,6 +134,23 @@ h1 {
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s;
+}
+
+.quiz-custom {
+    margin-top: 10px;
+}
+
+.quiz-custom-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px dashed #cbd3ff;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.quiz-custom-input:focus {
+    outline: none;
+    border-color: #667eea;
 }
 
 .quiz-item label:hover {
@@ -228,6 +267,72 @@ h1 {
     font-size: 0.9em;
 }
 
+.review-summary {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.review-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.review-toggle {
+    font-weight: bold;
+    color: #555;
+}
+
+.review-comic {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.review-frame {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.review-frame img {
+    width: 100%;
+    display: block;
+}
+
+.review-caption {
+    padding: 10px 12px;
+    font-size: 0.95em;
+    color: #555;
+    background: #f1f3f5;
+}
+
+.review-comic.animate .review-frame {
+    animation: reviewFadeIn 0.6s ease both;
+    animation-delay: var(--delay);
+}
+
+@keyframes reviewFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .image-container {
     margin: 20px 0;
     text-align: center;
@@ -316,5 +421,10 @@ h1 {
     
     .choice-options {
         gap: 10px;
+    }
+
+    .review-controls {
+        flex-direction: column;
+        align-items: stretch;
     }
 }
