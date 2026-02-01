@@ -179,6 +179,55 @@ h1 {
     font-size: 1.05em;
 }
 
+.facts-panel {
+    margin-top: 20px;
+    padding: 20px;
+    background: #eef5ff;
+    border-radius: 12px;
+    border: 1px solid #cfe2ff;
+}
+
+.facts-header {
+    font-weight: bold;
+    color: #3b5bdb;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+}
+
+.facts-list {
+    list-style: none;
+}
+
+.fact-item {
+    padding: 12px 14px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.fact-item:last-child {
+    margin-bottom: 0;
+}
+
+.fact-meta {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.fact-text {
+    color: #444;
+    line-height: 1.6;
+}
+
+.fact-source {
+    display: block;
+    margin-top: 6px;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
 .image-container {
     margin: 20px 0;
     text-align: center;

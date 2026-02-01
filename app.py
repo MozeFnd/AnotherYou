@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, request, jsonify, send_from_directory, Response
+from concurrent.futures import ThreadPoolExecutor
 from flask_cors import CORS
 import base64
 import os
@@ -176,18 +177,23 @@ def generate_stage():
         if len(image_prompt2) > 500:
             image_prompt2 = image_prompt2[:500]
         
-        # 生成图片
-        print(f"正在生成第一张图片...")
-        image_path1 = image_generator.generate_and_save(
-            f"comic style, {image_prompt1}, colorful, detailed",
-            model="Qwen/Qwen-Image"
-        )
-        
-        print(f"正在生成第二张图片...")
-        image_path2 = image_generator.generate_and_save(
-            f"comic style, {image_prompt2}, colorful, detailed",
-            model="Qwen/Qwen-Image"
-        )
+        # 生成图片（并行）
+        prompt1 = f"comic style, {image_prompt1}, colorful, detailed"
+        prompt2 = f"comic style, {image_prompt2}, colorful, detailed"
+        print("正在并行生成前两张图片...")
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            future1 = executor.submit(
+                image_generator.generate_and_save,
+                prompt1,
+                model="Qwen/Qwen-Image"
+            )
+            future2 = executor.submit(
+                image_generator.generate_and_save,
+                prompt2,
+                model="Qwen/Qwen-Image"
+            )
+            image_path1 = future1.result()
+            image_path2 = future2.result()
         
         # 生成图片描述文字
         desc1_prompt = f"""为以下故事的开头场景生成一句简短的描述文字（20字以内）：
