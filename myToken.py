@@ -1,1 +1,5 @@
-myToken = "ms-fa149b85-bc91-4fd4-bcd4-40d467c3b48b"
+import os
+
+myToken = os.getenv("MODELSCOPE_KEY")
+if not myToken:
+    raise RuntimeError("Missing env var MODELSCOPE_KEY. Please set it before running.")
